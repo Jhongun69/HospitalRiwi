@@ -1,0 +1,42 @@
+@model HospitalRiwi.Models.MedicalDate
+
+@{
+    ViewData["Title"] = "Agendar Cita";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="PatientId" class="control-label">Paciente</label>
+                <select asp-for="PatientId" class="form-control" asp-items="ViewBag.PatientsList">
+                    <option value="">-- Seleccione un Paciente --</option>
+                </select>
+                <span asp-validation-for="PatientId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="DoctorId" class="control-label">Médico</label>
+                <select asp-for="DoctorId" class="form-control" asp-items="ViewBag.DoctorsList">
+                    <option value="">-- Seleccione un Médico --</option>
+                </select>
+                <span asp-validation-for="DoctorId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Appointment" class="control-label">Fecha y Hora</label>
+                <input asp-for="Appointment" class="form-control" type="datetime-local" />
+                <span asp-validation-for="Appointment" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Agendar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+            </div>
+        </form>
+    </div>
+</div>

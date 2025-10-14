@@ -1,0 +1,47 @@
+@model HospitalRiwi.Models.Patient//Esta vista espera un único objeto Patient
+
+@{
+    ViewData["Title"] = "Registrar Paciente";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" novalidate> @*Crea un formulario que enviara sus datos a la accion Create de tipo POST del controlador de patient*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label"></label> @*Crea una etiqueta <label> para el campo "Name"*@
+                <input asp-for="Name" class="form-control" />@*Crea un campo de texto <input> vinculado a la propiedad Name del modelo*@
+                <span asp-validation-for="Name" class="text-danger"></span>@*Este es el lugar donde aparecerán los mensajes de error*@
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Document" class="control-label"></label>
+                <input asp-for="Document" class="form-control" />
+                <span asp-validation-for="Document" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+             <div class="form-group mb-3">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success"/>
+                <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
