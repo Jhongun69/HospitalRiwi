@@ -88,6 +88,7 @@ Be sure to replace `your_mysql_user` and `your_mysql_password` with the correct 
 ### 3. Apply the Migrations
 Entity Framework migrations are responsible for creating all the tables and relationships in the database you just created. Run the following command in the terminal from the project root:
 ```bash
+dotnet ef migrations add FirstMigration
 dotnet ef database update
 ```
 This will read the code and build the database schema automatically.
